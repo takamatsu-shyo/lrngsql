@@ -24,3 +24,9 @@ SELECT a.account_id, c.fed_id, p.name FROM account a INNER JOIN customer c ON a.
 
 --5-3
 SELECT e.emp_id , e.fname, e.lname FROM employee e INNER JOIN employee mgr ON e.superior_emp_id = mgr.emp_id WHERE e.dept_id != mgr.dept_id;
+
+--6-2
+SELECT fname, lname from individual UNION SELECT fname,lname from employee;
+
+--6-3
+SELECT fname, lname from individual UNION SELECT fname,lname from employee ORDER BY lname;
