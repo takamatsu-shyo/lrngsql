@@ -30,3 +30,15 @@ SELECT fname, lname from individual UNION SELECT fname,lname from employee;
 
 --6-3
 SELECT fname, lname from individual UNION SELECT fname,lname from employee ORDER BY lname;
+
+--10-1
+SELECT a.*  FROM account a RIGHT OUTER JOIN product p ON a.product_cd = p.product_cd;
+
+--10-2
+SELECT a.*  FROM product p LEFT OUTER JOIN account t ON a.product_cd = p.product_cd;
+
+--10-3
+ELECT a.account_id, a.product_cd, i.fname, i.lname, b.name FROM account a LEFT OUTER JOIN individual i ON a.cust_id = i.cust_id LEFT OUTER JOIN business b ON a.cust_id = b.cust_id ORDER BY a.account_id;
+
+--10-4
+SELECT 1 + ones.num + tens.num FROM (SELECT 0 num UNION ALL SELECT 1 num UNION ALL SELECT 2 num UNION ALL SELECT 3 num UNION ALL SELECT 4 num UNION ALL SELECT 5 num UNION ALL SELECT 6 num UNION ALL SELECT 7 num UNION ALL SELECT 8 num UNION ALL SELECT 9 num) ones CROSS JOIN (SELECT 0 num UNION ALL SELECT 10 num UNION ALL SELECT 20 num UNION ALL SELECT 30 num UNION ALL SELECT 40 num UNION ALL SELECT 50 num UNION ALL SELECT 60 num UNION ALL SELECT 70 num UNION ALL SELECT 80 num UNION ALL SELECT 90 num) tens;
